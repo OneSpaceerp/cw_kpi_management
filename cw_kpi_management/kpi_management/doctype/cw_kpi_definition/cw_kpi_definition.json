@@ -1,0 +1,194 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:kpi_code",
+ "creation": "2026-09-09 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "kpi_code",
+  "kpi_name",
+  "department",
+  "kpi_type",
+  "directionality",
+  "data_source",
+  "unit",
+  "is_active",
+  "col_break_1",
+  "default_weight",
+  "min_score",
+  "max_score",
+  "cap_achievement_percent",
+  "floor_achievement_percent",
+  "section_threshold",
+  "threshold_pass_value",
+  "range_min_value",
+  "range_max_value",
+  "section_desc",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "kpi_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "KPI Code",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "kpi_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "KPI Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "default": "Target Achievement",
+   "fieldname": "kpi_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "KPI Type",
+   "options": "Target Achievement\nCount Target\nPercentage Target\nThreshold\nRange-based\nAttendance-derived\nManual/Manager Rating\nComposite",
+   "reqd": 1
+  },
+  {
+   "default": "Higher is Better",
+   "fieldname": "directionality",
+   "fieldtype": "Select",
+   "label": "Directionality",
+   "options": "Higher is Better\nLower is Better\nRange is Best",
+   "reqd": 1
+  },
+  {
+   "default": "Manual Entry",
+   "fieldname": "data_source",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Data Source",
+   "options": "Manual Entry\nCW Site Visits\nERPNext Attendance\nERPNext Sales Invoices\nERPNext Quotations",
+   "reqd": 1
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Data",
+   "label": "Unit (e.g. %, EGP, Count, Hours)"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "20.0",
+   "fieldname": "default_weight",
+   "fieldtype": "Float",
+   "label": "Default Weight (%)"
+  },
+  {
+   "default": "0.0",
+   "fieldname": "min_score",
+   "fieldtype": "Float",
+   "label": "Min Allowed Score"
+  },
+  {
+   "default": "100.0",
+   "fieldname": "max_score",
+   "fieldtype": "Float",
+   "label": "Max Allowed Score"
+  },
+  {
+   "fieldname": "cap_achievement_percent",
+   "fieldtype": "Float",
+   "label": "Cap Achievement (%)"
+  },
+  {
+   "fieldname": "floor_achievement_percent",
+   "fieldtype": "Float",
+   "label": "Floor Achievement (%)"
+  },
+  {
+   "fieldname": "section_threshold",
+   "fieldtype": "Section Break",
+   "label": "Threshold & Range Specifics"
+  },
+  {
+   "fieldname": "threshold_pass_value",
+   "fieldtype": "Float",
+   "label": "Threshold Cutoff Value"
+  },
+  {
+   "fieldname": "range_min_value",
+   "fieldtype": "Float",
+   "label": "Range Min (Optimal)"
+  },
+  {
+   "fieldname": "range_max_value",
+   "fieldtype": "Float",
+   "label": "Range Max (Optimal)"
+  },
+  {
+   "fieldname": "section_desc",
+   "fieldtype": "Section Break",
+   "label": "Description & Guidance"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description / Formula Instructions"
+  }
+ ],
+ "links": [],
+ "modified": "2026-09-09 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "KPI Management",
+ "name": "CW KPI Definition",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CW KPI Administrator",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "CW Department Manager"
+  }
+ ],
+ "sort_field": "kpi_code",
+ "sort_order": "ASC",
+ "states": [],
+ "track_changes": 1
+}

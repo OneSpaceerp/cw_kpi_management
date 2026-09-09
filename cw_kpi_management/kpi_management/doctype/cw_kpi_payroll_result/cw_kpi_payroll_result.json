@@ -1,0 +1,201 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2026-09-09 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "employee",
+  "employee_name",
+  "department",
+  "kpi_period",
+  "kpi_evaluation",
+  "col_break_1",
+  "score",
+  "compensation_type",
+  "salary_component",
+  "amount",
+  "currency",
+  "status",
+  "section_integration",
+  "compensation_rule",
+  "additional_salary_doc",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "default": "KPI-PAY-.YYYY.-.####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "KPI-PAY-.YYYY.-.####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.department",
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "fieldname": "kpi_period",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "KPI Period",
+   "options": "CW KPI Period",
+   "reqd": 1
+  },
+  {
+   "fieldname": "kpi_evaluation",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "KPI Evaluation",
+   "options": "CW KPI Evaluation",
+   "reqd": 1
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "score",
+   "fieldtype": "Float",
+   "label": "KPI Final Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "compensation_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Compensation Type",
+   "options": "Bonus\nCommission\nAllowance\nDeduction",
+   "reqd": 1
+  },
+  {
+   "fieldname": "salary_component",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Salary Component",
+   "options": "Salary Component",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Approved Amount",
+   "reqd": 1
+  },
+  {
+   "default": "EGP",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "default": "Queued for Payroll",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Payroll Status",
+   "options": "Draft\nApproved\nQueued for Payroll\nProcessed in Payroll\nCancelled",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_integration",
+   "fieldtype": "Section Break",
+   "label": "ERPNext Payroll Integration References"
+  },
+  {
+   "fieldname": "compensation_rule",
+   "fieldtype": "Link",
+   "label": "Source Compensation Rule",
+   "options": "CW KPI Compensation Rule"
+  },
+  {
+   "fieldname": "additional_salary_doc",
+   "fieldtype": "Link",
+   "label": "ERPNext Additional Salary Record",
+   "options": "Additional Salary",
+   "read_only": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Audit Remarks"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-09-09 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "KPI Management",
+ "name": "CW KPI Payroll Result",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "cancel": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CW KPI Administrator",
+   "submit": 1,
+   "cancel": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "HR Manager"
+  },
+  {
+   "read": 1,
+   "role": "Accounts Manager"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

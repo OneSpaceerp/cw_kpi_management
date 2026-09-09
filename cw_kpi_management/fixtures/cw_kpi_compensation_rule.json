@@ -1,0 +1,50 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "CW KPI Compensation Rule",
+  "name": "RULE-SALES-TIER1",
+  "rule_name": "Sales Excellence Tier 1",
+  "rule_version": "1.0",
+  "department": "Sales",
+  "min_kpi_score": 90.0,
+  "max_kpi_score": 120.0,
+  "compensation_type": "Bonus",
+  "calculation_method": "Fixed Amount",
+  "amount_or_percent": 2500.0,
+  "salary_component": "Performance Bonus",
+  "is_active": 1,
+  "description": "Fixed 2,500 EGP bonus for achieving 90%+ in monthly sales score"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "CW KPI Compensation Rule",
+  "name": "RULE-ENGINEER-BONUS",
+  "rule_name": "Field Engineer High Achievement",
+  "rule_version": "1.0",
+  "department": "Technical Support",
+  "min_kpi_score": 85.0,
+  "max_kpi_score": 120.0,
+  "compensation_type": "Bonus",
+  "calculation_method": "Fixed Amount",
+  "amount_or_percent": 1500.0,
+  "salary_component": "Performance Bonus",
+  "is_active": 1,
+  "description": "Fixed 1,500 EGP bonus for 85%+ verified site visit and quality score"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "CW KPI Compensation Rule",
+  "name": "RULE-ATTENDANCE-ALLOWANCE",
+  "rule_name": "Punctuality & Discipline Incentive",
+  "rule_version": "1.0",
+  "department": "",
+  "min_kpi_score": 95.0,
+  "max_kpi_score": 100.0,
+  "compensation_type": "Allowance",
+  "calculation_method": "Fixed Amount",
+  "amount_or_percent": 500.0,
+  "salary_component": "Special Allowance",
+  "is_active": 1,
+  "description": "500 EGP attendance allowance for 95%+ overall attendance & discipline"
+ }
+]

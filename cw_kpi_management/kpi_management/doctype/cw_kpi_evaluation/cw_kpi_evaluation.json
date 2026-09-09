@@ -1,0 +1,265 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "naming_series:",
+ "creation": "2026-09-09 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "employee",
+  "employee_name",
+  "department",
+  "designation",
+  "col_break_1",
+  "kpi_period",
+  "kpi_plan",
+  "evaluation_date",
+  "status",
+  "section_scores",
+  "calculated_score",
+  "final_score",
+  "total_weighted_score",
+  "col_break_scores",
+  "grade",
+  "section_lines",
+  "evaluation_lines",
+  "section_overrides",
+  "overrides",
+  "section_approval",
+  "reviewer",
+  "reviewer_remarks",
+  "col_break_approval",
+  "approver",
+  "approver_remarks",
+  "approval_timestamp"
+ ],
+ "fields": [
+  {
+   "default": "KPI-EVAL-.YYYY.-.####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "KPI-EVAL-.YYYY.-.####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.department",
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "fetch_from": "employee.designation",
+   "fieldname": "designation",
+   "fieldtype": "Link",
+   "label": "Designation",
+   "options": "Designation"
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "kpi_period",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "KPI Period",
+   "options": "CW KPI Period",
+   "reqd": 1
+  },
+  {
+   "fieldname": "kpi_plan",
+   "fieldtype": "Link",
+   "label": "Employee KPI Plan",
+   "options": "CW Employee KPI Plan",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "evaluation_date",
+   "fieldtype": "Date",
+   "label": "Evaluation Date",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Evaluation Status",
+   "options": "Draft\nCalculated\nPending Manager Review\nPending Approval\nApproved\nRejected\nCancelled",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_scores",
+   "fieldtype": "Section Break",
+   "label": "Overall Score & Performance Grade"
+  },
+  {
+   "fieldname": "calculated_score",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Raw Calculated Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "final_score",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Final Score (Post-Overrides)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_weighted_score",
+   "fieldtype": "Float",
+   "label": "Total Weighted Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_break_scores",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "grade",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Grade Rating",
+   "options": "\nA - Outstanding (90-100%)\nB - Exceeds Expectations (80-89%)\nC - Meets Expectations (70-79%)\nD - Below Expectations (60-69%)\nF - Unsatisfactory (<60%)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_lines",
+   "fieldtype": "Section Break",
+   "label": "KPI Evaluation Lines"
+  },
+  {
+   "fieldname": "evaluation_lines",
+   "fieldtype": "Table",
+   "label": "Evaluation Lines",
+   "options": "CW KPI Evaluation Line",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_overrides",
+   "fieldtype": "Section Break",
+   "label": "Audited Manual Adjustments"
+  },
+  {
+   "fieldname": "overrides",
+   "fieldtype": "Table",
+   "label": "Score Overrides Audit Log",
+   "options": "CW KPI Adjustment Override"
+  },
+  {
+   "fieldname": "section_approval",
+   "fieldtype": "Section Break",
+   "label": "Review & Approval Sign-off"
+  },
+  {
+   "fieldname": "reviewer",
+   "fieldtype": "Link",
+   "label": "Reviewer",
+   "options": "User"
+  },
+  {
+   "fieldname": "reviewer_remarks",
+   "fieldtype": "Small Text",
+   "label": "Reviewer Remarks"
+  },
+  {
+   "fieldname": "col_break_approval",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approver",
+   "fieldtype": "Link",
+   "label": "Approver",
+   "options": "User"
+  },
+  {
+   "fieldname": "approver_remarks",
+   "fieldtype": "Small Text",
+   "label": "Approver Remarks"
+  },
+  {
+   "fieldname": "approval_timestamp",
+   "fieldtype": "Datetime",
+   "label": "Approval Timestamp",
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-09-09 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "KPI Management",
+ "name": "CW KPI Evaluation",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "cancel": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CW KPI Administrator",
+   "submit": 1,
+   "cancel": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "CW Department Manager",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Employee"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

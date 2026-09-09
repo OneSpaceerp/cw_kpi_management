@@ -1,0 +1,98 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-09-09 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_scale",
+  "default_scoring_scale",
+  "default_period_type",
+  "allow_scores_above_100",
+  "col_break_1",
+  "require_override_reason",
+  "require_department_manager_approval",
+  "auto_generate_payroll_on_approval"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_scale",
+   "fieldtype": "Section Break",
+   "label": "Scoring Policy & Rules"
+  },
+  {
+   "default": "0-100%",
+   "fieldname": "default_scoring_scale",
+   "fieldtype": "Select",
+   "label": "Default Scoring Scale",
+   "options": "0-100%\n0-5 Points\nPass/Fail",
+   "reqd": 1
+  },
+  {
+   "default": "Monthly",
+   "fieldname": "default_period_type",
+   "fieldtype": "Select",
+   "label": "Default Period Type",
+   "options": "Monthly\nQuarterly\nSemi-Annual\nAnnual",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_scores_above_100",
+   "fieldtype": "Check",
+   "label": "Allow Scores Above 100% (Uncapped Over-achievement)"
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "require_override_reason",
+   "fieldtype": "Check",
+   "label": "Require Justification Reason for Overrides"
+  },
+  {
+   "default": "1",
+   "fieldname": "require_department_manager_approval",
+   "fieldtype": "Check",
+   "label": "Require Department Manager Sign-off"
+  },
+  {
+   "default": "1",
+   "fieldname": "auto_generate_payroll_on_approval",
+   "fieldtype": "Check",
+   "label": "Auto-generate KPI Payroll Result upon Evaluation Approval"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-09-09 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "KPI Management",
+ "name": "CW KPI Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "CW KPI Administrator",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

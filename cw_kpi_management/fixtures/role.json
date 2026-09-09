@@ -1,0 +1,16 @@
+[
+ {
+  "doctype": "Role",
+  "name": "CW KPI Administrator",
+  "role_name": "CW KPI Administrator",
+  "desk_access": 1,
+  "is_custom": 1
+ },
+ {
+  "doctype": "Role",
+  "name": "CW Department Manager",
+  "role_name": "CW Department Manager",
+  "desk_access": 1,
+  "is_custom": 1
+ }
+]

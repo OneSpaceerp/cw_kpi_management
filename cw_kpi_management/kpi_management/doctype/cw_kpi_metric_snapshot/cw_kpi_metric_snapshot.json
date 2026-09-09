@@ -1,0 +1,110 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "format:SNAP-{employee}-{kpi_period}-{kpi_definition}",
+ "creation": "2026-09-09 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "kpi_period",
+  "kpi_definition",
+  "col_break_1",
+  "raw_metric_value",
+  "data_source",
+  "calculation_timestamp",
+  "section_details",
+  "source_query_details"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "kpi_period",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "KPI Period",
+   "options": "CW KPI Period",
+   "reqd": 1
+  },
+  {
+   "fieldname": "kpi_definition",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "KPI Definition",
+   "options": "CW KPI Definition",
+   "reqd": 1
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "raw_metric_value",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Raw Metric Value",
+   "reqd": 1
+  },
+  {
+   "fieldname": "data_source",
+   "fieldtype": "Data",
+   "label": "Data Source"
+  },
+  {
+   "fieldname": "calculation_timestamp",
+   "fieldtype": "Datetime",
+   "label": "Snapshot Timestamp"
+  },
+  {
+   "fieldname": "section_details",
+   "fieldtype": "Section Break",
+   "label": "Query / Audit Details"
+  },
+  {
+   "fieldname": "source_query_details",
+   "fieldtype": "Small Text",
+   "label": "Source Query / Extraction Details"
+  }
+ ],
+ "links": [],
+ "modified": "2026-09-09 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "KPI Management",
+ "name": "CW KPI Metric Snapshot",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "CW KPI Administrator",
+   "write": 1
+  }
+ ],
+ "sort_field": "calculation_timestamp",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

@@ -1,0 +1,108 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-09-09 10:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "kpi_definition",
+  "kpi_name",
+  "target_value",
+  "actual_value",
+  "achievement_percent",
+  "calculated_score",
+  "weight",
+  "weighted_score",
+  "manual_override_score",
+  "final_line_score",
+  "calculation_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "kpi_definition",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "KPI Definition",
+   "options": "CW KPI Definition",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "kpi_definition.kpi_name",
+   "fieldname": "kpi_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "KPI Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "target_value",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Target",
+   "reqd": 1
+  },
+  {
+   "fieldname": "actual_value",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Actual Metric",
+   "reqd": 1
+  },
+  {
+   "fieldname": "achievement_percent",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Achievement (%)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "calculated_score",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Calculated Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "weight",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Weight (%)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "weighted_score",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Weighted Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "manual_override_score",
+   "fieldtype": "Float",
+   "label": "Override Score"
+  },
+  {
+   "fieldname": "final_line_score",
+   "fieldtype": "Float",
+   "label": "Final Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "calculation_notes",
+   "fieldtype": "Small Text",
+   "label": "Calculation Trace / Formula Notes"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-09-09 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "KPI Management",
+ "name": "CW KPI Evaluation Line",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "idx",
+ "sort_order": "ASC",
+ "states": [],
+ "track_changes": 1
+}
