@@ -29,5 +29,37 @@ bench --site onespace.cw-eg.com install-app cw_kpi_management
 bench --site onespace.cw-eg.com migrate
 ```
 
+Updating an installed site:
+```bash
+cd apps/cw_kpi_management && git pull && cd ../..
+bench --site onespace.cw-eg.com migrate
+bench build --app cw_kpi_management
+bench --site onespace.cw-eg.com clear-cache
+bench restart
+```
+
+## Desk app (ERPNext v16.51+)
+
+KPI is a desk app of its own: a **KPI** tile on the Apps screen (logo
+`public/images/kpi.png`) and a rail with three sections, each with its own sidebar.
+
+| Rail | Sidebar | Holds |
+| --- | --- | --- |
+| Performance | KPI Management | Home dashboard, Employee KPI Plan, KPI Evaluation, KPI Period, Metric Snapshot, Reports |
+| Payroll | KPI Payroll | Payroll dashboard, KPI Payroll Result, Compensation Rule, Additional Salary, Salary Component, Salary Slip, Payroll Entry, Reconciliation report |
+| Setup | KPI Setup | KPI Definition, Target Template, Compensation Rule, Organization, Access, Settings (KPI, HR, Payroll) |
+
+The two home pages (`/desk/kpi-management`, `/desk/kpi-payroll`) show live number
+cards and charts: active plans, evaluations awaiting review, average approved
+score, open periods, payouts queued and processed.
+
+Files: `dock/` (rail), `kpi_management/sidebar/` (sidebars),
+`kpi_management/workspace/`, `kpi_management/number_card/`,
+`kpi_management/dashboard_chart/`, icons in `public/icons/kpi-icons.svg`. The tile
+shows for System Manager, CW KPI Administrator, CW Department Manager, HR Manager,
+HR User and Accounts Manager (`desk.py`). After every migrate, `desk.py` re-imports
+the shipped workspaces and sidebars over any record a site made or converted
+under the same name, and adds the KPI tile on sites that use the Desktop Icon grid.
+
 ## License
 MIT License. Copyright (c) 2026 Nest Software Development & C-Water.

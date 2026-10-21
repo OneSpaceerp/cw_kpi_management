@@ -1,0 +1,39 @@
+{
+ "creation": "2026-10-21 12:00:00.000000",
+ "modified": "2026-10-21 12:00:00.000000",
+ "modified_by": "Administrator",
+ "owner": "Administrator",
+ "docstatus": 0,
+ "idx": 0,
+ "doctype": "Dock",
+ "name": "cw_kpi_management",
+ "app": "cw_kpi_management",
+ "user": "",
+ "standard": 1,
+ "items": [
+  {
+   "link_type": "Sidebar",
+   "link_to": "KPI Management",
+   "icon": "kpi-gauge-soft",
+   "title": "Performance",
+   "added": 0,
+   "hidden": 0
+  },
+  {
+   "link_type": "Sidebar",
+   "link_to": "KPI Payroll",
+   "icon": "kpi-payroll-soft",
+   "title": "Payroll",
+   "added": 0,
+   "hidden": 0
+  },
+  {
+   "link_type": "Sidebar",
+   "link_to": "KPI Setup",
+   "icon": "kpi-setup-soft",
+   "title": "Setup",
+   "added": 0,
+   "hidden": 0
+  }
+ ]
+}

@@ -1,30 +1,41 @@
 {
- "charts": [],
- "content": "[{\"id\":\"kpi_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">C-Water Employee KPI Management</span>\",\"col\":12}},{\"id\":\"kpi_shortcuts\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"CW Employee KPI Plan\",\"col\":4}},{\"id\":\"kpi_shortcuts_2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"CW KPI Evaluation\",\"col\":4}},{\"id\":\"kpi_shortcuts_3\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"CW KPI Payroll Result\",\"col\":4}}]",
- "creation": "2026-09-09 10:00:00.000000",
+ "app": "cw_kpi_management",
+ "charts": [
+  {
+   "chart_name": "Evaluations by Status",
+   "label": "Evaluations by Status"
+  },
+  {
+   "chart_name": "Approved Evaluations by Grade",
+   "label": "Approved Evaluations by Grade"
+  }
+ ],
+ "content": "[{\"id\": \"cwkpi10001\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Employee Performance</b></span>\", \"col\": 12}}, {\"id\": \"cwkpi10002\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Active KPI Plans\", \"col\": 4}}, {\"id\": \"cwkpi10003\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Evaluations Awaiting Review\", \"col\": 4}}, {\"id\": \"cwkpi10004\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Approved Evaluations\", \"col\": 4}}, {\"id\": \"cwkpi10005\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Average Final Score\", \"col\": 4}}, {\"id\": \"cwkpi10006\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Open KPI Periods\", \"col\": 4}}, {\"id\": \"cwkpi10007\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Evaluations by Status\", \"col\": 6}}, {\"id\": \"cwkpi10008\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Approved Evaluations by Grade\", \"col\": 6}}, {\"id\": \"cwkpi10009\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h5\\\"><b>Quick Access</b></span>\", \"col\": 12}}, {\"id\": \"cwkpi10010\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Employee KPI Plan\", \"col\": 3}}, {\"id\": \"cwkpi10011\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"KPI Evaluation\", \"col\": 3}}, {\"id\": \"cwkpi10012\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"KPI Period\", \"col\": 3}}, {\"id\": \"cwkpi10013\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Employee KPI Summary\", \"col\": 3}}, {\"id\": \"cwkpi10014\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h5\\\"><b>Reports &amp; Masters</b></span>\", \"col\": 12}}, {\"id\": \"cwkpi10015\", \"type\": \"card\", \"data\": {\"card_name\": \"Performance\", \"col\": 4}}, {\"id\": \"cwkpi10016\", \"type\": \"card\", \"data\": {\"card_name\": \"Reports\", \"col\": 4}}, {\"id\": \"cwkpi10017\", \"type\": \"card\", \"data\": {\"card_name\": \"Setup\", \"col\": 4}}]",
+ "creation": "2026-10-21 12:00:00.000000",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
  "hide_custom": 0,
- "icon": "chart-pie",
- "indicator_color": "green",
+ "icon": "gauge",
+ "idx": 0,
+ "indicator_color": "blue",
  "is_hidden": 0,
  "label": "KPI Management",
  "links": [
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Performance & Plans",
-   "link_count": 0,
-   "link_type": "Section",
+   "label": "Performance",
+   "link_count": 4,
+   "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
   },
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Employee KPI Plans",
+   "label": "Employee KPI Plan",
    "link_count": 0,
    "link_to": "CW Employee KPI Plan",
    "link_type": "DocType",
@@ -34,7 +45,7 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "KPI Evaluations",
+   "label": "KPI Evaluation",
    "link_count": 0,
    "link_to": "CW KPI Evaluation",
    "link_type": "DocType",
@@ -44,7 +55,7 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "KPI Periods",
+   "label": "KPI Period",
    "link_count": 0,
    "link_to": "CW KPI Period",
    "link_type": "DocType",
@@ -54,18 +65,9 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Payroll & Compensation",
+   "label": "Metric Snapshot",
    "link_count": 0,
-   "link_type": "Section",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "KPI Payroll Results",
-   "link_count": 0,
-   "link_to": "CW KPI Payroll Result",
+   "link_to": "CW KPI Metric Snapshot",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
@@ -73,26 +75,47 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Compensation Rules",
-   "link_count": 0,
-   "link_to": "CW KPI Compensation Rule",
+   "label": "Reports",
+   "link_count": 2,
    "link_type": "DocType",
    "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Employee KPI Summary",
+   "link_count": 0,
+   "link_to": "Employee KPI Summary",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "CW KPI Evaluation",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "KPI Payroll Reconciliation",
+   "link_count": 0,
+   "link_to": "KPI Payroll Reconciliation",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "CW KPI Payroll Result",
    "type": "Link"
   },
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Configuration & Setup",
-   "link_count": 0,
-   "link_type": "Section",
+   "label": "Setup",
+   "link_count": 3,
+   "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
   },
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "KPI Definitions",
+   "label": "KPI Definition",
    "link_count": 0,
    "link_to": "CW KPI Definition",
    "link_type": "DocType",
@@ -102,7 +125,7 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Target Templates",
+   "label": "Target Template",
    "link_count": 0,
    "link_to": "CW KPI Target Template",
    "link_type": "DocType",
@@ -118,69 +141,73 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Reports & Reconciliation",
-   "link_count": 0,
-   "link_type": "Section",
-   "onboard": 0,
-   "type": "Card Break"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 1,
-   "label": "Employee KPI Summary",
-   "link_count": 0,
-   "link_to": "Employee KPI Summary",
-   "link_type": "Report",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "hidden": 0,
-   "is_query_report": 1,
-   "label": "KPI Payroll Reconciliation",
-   "link_count": 0,
-   "link_to": "KPI Payroll Reconciliation",
-   "link_type": "Report",
-   "onboard": 0,
-   "type": "Link"
   }
  ],
- "modified": "2026-09-09 10:00:00.000000",
+ "modified": "2026-10-21 12:00:00.000000",
  "modified_by": "Administrator",
  "module": "KPI Management",
  "name": "KPI Management",
- "number_cards": [],
+ "number_cards": [
+  {
+   "label": "Active KPI Plans",
+   "number_card_name": "Active KPI Plans"
+  },
+  {
+   "label": "Evaluations Awaiting Review",
+   "number_card_name": "Evaluations Awaiting Review"
+  },
+  {
+   "label": "Approved Evaluations",
+   "number_card_name": "Approved Evaluations"
+  },
+  {
+   "label": "Average Final Score",
+   "number_card_name": "Average Final Score"
+  },
+  {
+   "label": "Open KPI Periods",
+   "number_card_name": "Open KPI Periods"
+  }
+ ],
  "owner": "Administrator",
+ "parent_page": "",
  "public": 1,
  "quick_lists": [],
+ "restrict_to_domain": "",
  "roles": [],
- "sequence_id": 2.0,
+ "sequence_id": 41.0,
  "shortcuts": [
   {
-   "color": "Grey",
+   "color": "Blue",
    "doc_view": "List",
-   "label": "CW Employee KPI Plan",
+   "label": "Employee KPI Plan",
    "link_to": "CW Employee KPI Plan",
    "type": "DocType"
   },
   {
-   "color": "Grey",
+   "color": "Green",
    "doc_view": "List",
-   "label": "CW KPI Evaluation",
+   "label": "KPI Evaluation",
    "link_to": "CW KPI Evaluation",
+   "stats_filter": "[[\"CW KPI Evaluation\", \"status\", \"in\", [\"Pending Manager Review\", \"Pending Approval\"]]]",
    "type": "DocType"
   },
   {
-   "color": "Grey",
+   "color": "Cyan",
    "doc_view": "List",
-   "label": "CW KPI Payroll Result",
-   "link_to": "CW KPI Payroll Result",
+   "label": "KPI Period",
+   "link_to": "CW KPI Period",
    "type": "DocType"
+  },
+  {
+   "color": "Purple",
+   "doc_view": "",
+   "label": "Employee KPI Summary",
+   "link_to": "Employee KPI Summary",
+   "report_ref_doctype": "CW KPI Evaluation",
+   "type": "Report"
   }
  ],
+ "standard": 1,
  "title": "KPI Management"
 }

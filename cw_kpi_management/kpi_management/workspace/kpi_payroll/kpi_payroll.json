@@ -1,0 +1,178 @@
+{
+ "app": "cw_kpi_management",
+ "charts": [
+  {
+   "chart_name": "KPI Payout by Status",
+   "label": "KPI Payout by Status"
+  },
+  {
+   "chart_name": "KPI Payout by Compensation Type",
+   "label": "KPI Payout by Compensation Type"
+  }
+ ],
+ "content": "[{\"id\": \"cwkpi20001\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>KPI Compensation &amp; Payroll</b></span>\", \"col\": 12}}, {\"id\": \"cwkpi20002\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Payroll Results Awaiting Approval\", \"col\": 3}}, {\"id\": \"cwkpi20003\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Queued for Payroll\", \"col\": 3}}, {\"id\": \"cwkpi20004\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"KPI Payout Queued\", \"col\": 3}}, {\"id\": \"cwkpi20005\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"KPI Payout Processed\", \"col\": 3}}, {\"id\": \"cwkpi20006\", \"type\": \"chart\", \"data\": {\"chart_name\": \"KPI Payout by Status\", \"col\": 6}}, {\"id\": \"cwkpi20007\", \"type\": \"chart\", \"data\": {\"chart_name\": \"KPI Payout by Compensation Type\", \"col\": 6}}, {\"id\": \"cwkpi20008\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h5\\\"><b>Quick Access</b></span>\", \"col\": 12}}, {\"id\": \"cwkpi20009\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"KPI Payroll Result\", \"col\": 3}}, {\"id\": \"cwkpi20010\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Compensation Rule\", \"col\": 3}}, {\"id\": \"cwkpi20011\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Additional Salary\", \"col\": 3}}, {\"id\": \"cwkpi20012\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"KPI Payroll Reconciliation\", \"col\": 3}}, {\"id\": \"cwkpi20013\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h5\\\"><b>Reports &amp; Masters</b></span>\", \"col\": 12}}, {\"id\": \"cwkpi20014\", \"type\": \"card\", \"data\": {\"card_name\": \"KPI Payroll\", \"col\": 4}}, {\"id\": \"cwkpi20015\", \"type\": \"card\", \"data\": {\"card_name\": \"Payroll\", \"col\": 4}}, {\"id\": \"cwkpi20016\", \"type\": \"card\", \"data\": {\"card_name\": \"Reports\", \"col\": 4}}]",
+ "creation": "2026-10-21 12:00:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "banknote",
+ "idx": 0,
+ "indicator_color": "blue",
+ "is_hidden": 0,
+ "label": "KPI Payroll",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "KPI Payroll",
+   "link_count": 2,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "KPI Payroll Result",
+   "link_count": 0,
+   "link_to": "CW KPI Payroll Result",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Compensation Rule",
+   "link_count": 0,
+   "link_to": "CW KPI Compensation Rule",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Payroll",
+   "link_count": 3,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Additional Salary",
+   "link_count": 0,
+   "link_to": "Additional Salary",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Salary Component",
+   "link_count": 0,
+   "link_to": "Salary Component",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Payroll Entry",
+   "link_count": 0,
+   "link_to": "Payroll Entry",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Reports",
+   "link_count": 1,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "KPI Payroll Reconciliation",
+   "link_count": 0,
+   "link_to": "KPI Payroll Reconciliation",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "CW KPI Payroll Result",
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-10-21 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "KPI Management",
+ "name": "KPI Payroll",
+ "number_cards": [
+  {
+   "label": "Payroll Results Awaiting Approval",
+   "number_card_name": "Payroll Results Awaiting Approval"
+  },
+  {
+   "label": "Queued for Payroll",
+   "number_card_name": "Queued for Payroll"
+  },
+  {
+   "label": "KPI Payout Queued",
+   "number_card_name": "KPI Payout Queued"
+  },
+  {
+   "label": "KPI Payout Processed",
+   "number_card_name": "KPI Payout Processed"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "restrict_to_domain": "",
+ "roles": [],
+ "sequence_id": 42.0,
+ "shortcuts": [
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "KPI Payroll Result",
+   "link_to": "CW KPI Payroll Result",
+   "stats_filter": "[[\"CW KPI Payroll Result\", \"status\", \"=\", \"Draft\"]]",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "label": "Compensation Rule",
+   "link_to": "CW KPI Compensation Rule",
+   "type": "DocType"
+  },
+  {
+   "color": "Blue",
+   "doc_view": "List",
+   "label": "Additional Salary",
+   "link_to": "Additional Salary",
+   "type": "DocType"
+  },
+  {
+   "color": "Purple",
+   "doc_view": "",
+   "label": "KPI Payroll Reconciliation",
+   "link_to": "KPI Payroll Reconciliation",
+   "report_ref_doctype": "CW KPI Payroll Result",
+   "type": "Report"
+  }
+ ],
+ "standard": 1,
+ "title": "KPI Payroll"
+}
