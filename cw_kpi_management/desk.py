@@ -25,13 +25,18 @@ APP_ROLES = {
 	"Accounts Manager",
 }
 
-# Shipped navigation, as (doctype, name, path inside the module folder).
+# Shipped navigation, as (doctype, name, module, folder inside the module).
+#
+# Payroll and Setup are modules of their own that hold only navigation, the way Frappe HR
+# splits its desk. The desk gives a workspace to the first sidebar of the workspace's module,
+# so a Payroll home page in the KPI Management module would always open under KPI Management
+# and the rail could never switch to Payroll. The DocTypes all stay in KPI Management.
 SHIPPED = (
-	("Workspace", "KPI Management", ("workspace", "kpi_management")),
-	("Workspace", "KPI Payroll", ("workspace", "kpi_payroll")),
-	("Sidebar", "KPI Management", ("sidebar", "kpi_management")),
-	("Sidebar", "KPI Payroll", ("sidebar", "kpi_payroll")),
-	("Sidebar", "KPI Setup", ("sidebar", "kpi_setup")),
+	("Workspace", "KPI Management", MODULE, ("workspace", "kpi_management")),
+	("Workspace", "KPI Payroll", "KPI Payroll", ("workspace", "kpi_payroll")),
+	("Sidebar", "KPI Management", MODULE, ("sidebar", "kpi_management")),
+	("Sidebar", "KPI Payroll", "KPI Payroll", ("sidebar", "kpi_payroll")),
+	("Sidebar", "KPI Setup", "KPI Setup", ("sidebar", "kpi_setup")),
 )
 
 DESKTOP_ICON = {
@@ -74,14 +79,14 @@ def ensure_shipped_navigation():
 	"""
 	from frappe.modules.import_file import import_file_by_path
 
-	for doctype, name, folder in SHIPPED:
+	for doctype, name, module, folder in SHIPPED:
 		if not frappe.db.exists("DocType", doctype):
 			continue  # Sidebar only exists from v16.51
 		current = frappe.db.get_value(doctype, name, ["standard", "module"], as_dict=True)
-		if current and current.standard and current.module == MODULE:
+		if current and current.standard and current.module == module:
 			continue
 
-		path = frappe.get_module_path(MODULE, *folder, f"{folder[-1]}.json")
+		path = frappe.get_module_path(module, *folder, f"{folder[-1]}.json")
 		frappe.flags.in_import = True
 		try:
 			import_file_by_path(path, force=True, ignore_version=True)

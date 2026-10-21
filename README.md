@@ -53,9 +53,13 @@ The two home pages (`/desk/kpi-management`, `/desk/kpi-payroll`) show live numbe
 cards and charts: active plans, evaluations awaiting review, average approved
 score, open periods, payouts queued and processed.
 
-Files: `dock/` (rail), `kpi_management/sidebar/` (sidebars),
-`kpi_management/workspace/`, `kpi_management/number_card/`,
-`kpi_management/dashboard_chart/`, icons in `public/icons/kpi-icons.svg`. The tile
+Files: `dock/` (rail); the sidebars and home pages in `kpi_management/`,
+`kpi_payroll/` and `kpi_setup/`; number cards and charts in
+`kpi_management/number_card/` and `kpi_management/dashboard_chart/`; icons in
+`public/icons/kpi-icons.svg`. KPI Payroll and KPI Setup are navigation-only
+modules (all DocTypes stay in KPI Management): the desk gives a workspace to the
+first sidebar of the workspace's module, so each rail section needs a module of
+its own to keep its home page. The tile
 shows for System Manager, CW KPI Administrator, CW Department Manager, HR Manager,
 HR User and Accounts Manager (`desk.py`). After every migrate, `desk.py` re-imports
 the shipped workspaces and sidebars over any record a site made or converted

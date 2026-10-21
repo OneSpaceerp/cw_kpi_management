@@ -1,1 +1,3 @@
 KPI Management
+KPI Payroll
+KPI Setup
