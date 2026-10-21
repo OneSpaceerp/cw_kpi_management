@@ -18,6 +18,7 @@ except ImportError:
 		from datetime import datetime
 		return datetime.now()
 
+from cw_kpi_management import scorecard_service
 from cw_kpi_management.engine import KPICalculationEngine
 
 
@@ -31,8 +32,21 @@ def calculate_evaluation(evaluation_name: str) -> Dict[str, Any]:
 		return {}
 
 	doc = frappe.get_doc("CW KPI Evaluation", evaluation_name)
+	doc.check_permission("write")
 	if doc.docstatus != 0:
 		frappe.throw(_("Cannot recalculate a submitted or cancelled evaluation."))
+
+	if doc.kpi_plan and scorecard_service.has_scorecard(frappe.get_doc("CW Employee KPI Plan", doc.kpi_plan)):
+		calculate_scorecard(doc)
+		doc.status = "Calculated"
+		doc.save()
+		return {
+			"status": "success",
+			"evaluation_name": doc.name,
+			"calculated_score": doc.calculated_score,
+			"status_label": doc.status,
+			"eligibility": doc.eligibility,
+		}
 
 	period_doc = frappe.get_doc("CW KPI Period", doc.kpi_period)
 	start_date = str(period_doc.start_date)
@@ -118,8 +132,25 @@ def apply_manual_override(
 		frappe.throw(_("An override reason is mandatory."))
 
 	doc = frappe.get_doc("CW KPI Evaluation", evaluation_name)
+	doc.check_permission("write")
 	if doc.docstatus != 0:
 		frappe.throw(_("Cannot modify a submitted or cancelled evaluation."))
+
+	if doc.kpi_plan and scorecard_service.has_scorecard(frappe.get_doc("CW Employee KPI Plan", doc.kpi_plan)):
+		line = next((row for row in doc.evaluation_lines if row.kpi_definition == kpi_definition), None)
+		if not line:
+			frappe.throw(_("KPI Definition {0} not found in this evaluation.").format(kpi_definition))
+		doc.append("overrides", {
+			"kpi_definition": kpi_definition,
+			"previous_score": line.final_line_score or 0.0,
+			"new_score": flt(new_score),
+			"override_reason": reason,
+			"override_by": frappe.session.user,
+			"override_timestamp": now_datetime(),
+		})
+		calculate_scorecard(doc)
+		doc.save()
+		return {"status": "success", "new_final_score": doc.final_score, "eligibility": doc.eligibility}
 
 	found = False
 	for line in doc.evaluation_lines:
@@ -178,3 +209,120 @@ def approve_evaluation(evaluation_name: str, approver_remarks: Optional[str] = N
 		"evaluation_name": doc.name,
 		"status_label": doc.status,
 	}
+
+
+# ----------------------------------------------------------------- scorecard
+
+
+def calculate_scorecard(doc) -> None:
+	"""Score a quarterly evaluation from the engineer's submitted monthly reviews.
+
+	A criterion's quarter value is the average of the months it was measured in. The
+	payment decision is "Eligible" only when every required monthly review is submitted,
+	the total meets the minimum and no category is below its minimum.
+	"""
+	from cw_kpi_management import scorecard as sc
+
+	plan = frappe.get_doc("CW Employee KPI Plan", doc.kpi_plan)
+	categories, criteria = scorecard_service.structure_of(plan)
+	rules = scorecard_service.rules_of(plan)
+
+	filters = {"employee": doc.employee, "kpi_plan": plan.name, "docstatus": 1}
+	if doc.kpi_period:
+		period = frappe.get_cached_value("CW KPI Period", doc.kpi_period, ["start_date", "end_date"], as_dict=True)
+		if period and period.start_date and period.end_date:
+			filters["month_start"] = ["between", [period.start_date, period.end_date]]
+	reviews = frappe.get_all("CW KPI Monthly Review", filters=filters, pluck="name", order_by="month_start asc")
+
+	months = []
+	for name in reviews:
+		review = frappe.get_doc("CW KPI Monthly Review", name)
+		months.append({line.kpi_definition: scorecard_service.line_value(line) for line in review.lines})
+
+	# The latest override of each criterion wins; the table keeps the full history.
+	overrides = {}
+	for row in doc.get("overrides") or []:
+		overrides[row.kpi_definition] = flt(row.new_score)
+
+	try:
+		result = sc.score_period(categories, criteria, months, rules, overrides=overrides)
+	except sc.ScorecardError as error:
+		frappe.throw(_(str(error)), title=_("Scorecard weights"))
+
+	names = {row.kpi_definition: row.kpi_name for row in plan.plan_items}
+	doc.set("evaluation_lines", [])
+	for criterion in criteria:
+		item = result.criteria[criterion.key]
+		value = item["value"]
+		if item.get("overridden"):
+			note = _("Overridden by the manager (see Overrides)")
+		elif item["measured"]:
+			note = _("Average of {0} month(s)").format(item["months_measured"])
+		else:
+			note = _("Not measured in any month") + (
+				_(": left out, its weight shared by the category's other criteria")
+				if rules.missing_policy == sc.MISSING_EXCLUDE
+				else _(": counted as 0%")
+			)
+		doc.append(
+			"evaluation_lines",
+			{
+				"kpi_definition": criterion.key,
+				"kpi_name": names.get(criterion.key) or criterion.label,
+				"kpi_category": criterion.category,
+				"weight": criterion.weight,
+				"achievement_percent": value or 0,
+				"calculated_score": value or 0,
+				"manual_override_score": overrides.get(criterion.key),
+				"final_line_score": value or 0,
+				"weighted_score": round((value or 0) * criterion.weight / 100.0, 2),
+				"months_measured": item["months_measured"],
+				"is_measured": 1 if item["measured"] else 0,
+				"calculation_notes": note,
+			},
+		)
+
+	doc.set("category_results", scorecard_service.category_rows(result))
+	doc.calculated_score = result.total or 0
+	doc.final_score = result.total or 0
+	doc.total_weighted_score = result.total or 0
+	doc.eligibility = result.decision
+	doc.eligibility_reasons = "\n".join(result.reasons)
+	doc.months_reviewed = result.months_reviewed
+	doc.months_required = result.months_required
+	doc.pass_total_score = rules.pass_total
+	doc.min_category_score = rules.min_category
+	doc.missing_data_policy = rules.missing_policy
+	doc.monthly_reviews = ", ".join(reviews)
+
+
+@frappe.whitelist()
+def create_monthly_review(kpi_plan: str, month: Optional[str] = None) -> str:
+	"""Open (or return) the monthly review of a plan's employee for a month."""
+	from frappe.utils import getdate, nowdate
+
+	plan = frappe.get_doc("CW Employee KPI Plan", kpi_plan)
+	plan.check_permission("read")
+	start, _end = scorecard_service.month_bounds(month or nowdate())
+	existing = frappe.db.get_value(
+		"CW KPI Monthly Review", {"employee": plan.employee, "month_start": start, "docstatus": ["<", 2]}, "name"
+	)
+	if existing:
+		return existing
+	review = frappe.get_doc(
+		{"doctype": "CW KPI Monthly Review", "employee": plan.employee, "kpi_plan": plan.name, "month_start": getdate(start)}
+	)
+	review.insert()
+	return review.name
+
+
+@frappe.whitelist()
+def apply_template_to_plan(plan_name: str) -> None:
+	"""Copy the template's scorecard (categories, criteria, thresholds) onto the plan."""
+	plan = frappe.get_doc("CW Employee KPI Plan", plan_name)
+	plan.check_permission("write")
+	if not plan.target_template:
+		frappe.throw(_("Choose a Target Template first."))
+	scorecard_service.copy_scorecard(frappe.get_doc("CW KPI Target Template", plan.target_template), plan)
+	plan.save()
+

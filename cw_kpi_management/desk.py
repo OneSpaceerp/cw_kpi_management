@@ -63,8 +63,11 @@ def after_install():
 
 
 def after_migrate():
+	from cw_kpi_management.seed import seed_scorecard
+
 	ensure_shipped_navigation()
 	ensure_desktop_icon()
+	seed_scorecard()
 	frappe.clear_cache()
 
 

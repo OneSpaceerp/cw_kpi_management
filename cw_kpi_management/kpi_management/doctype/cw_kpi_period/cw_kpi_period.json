@@ -20,8 +20,9 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Period Name (e.g. 2026-M09, 2026-Q3)",
-   "reqd": 1,
-   "unique": 1
+   "reqd": 0,
+   "unique": 1,
+   "description": "Leave empty to name it from the dates, e.g. Q1 2026."
   },
   {
    "default": "Monthly",
@@ -67,7 +68,7 @@
   }
  ],
  "links": [],
- "modified": "2026-09-09 10:00:00.000000",
+ "modified": "2026-10-22 12:00:00.000000",
  "modified_by": "Administrator",
  "module": "KPI Management",
  "name": "CW KPI Period",

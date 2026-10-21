@@ -1,0 +1,78 @@
+{
+ "actions": [],
+ "creation": "2026-10-22 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "kpi_category",
+  "weight",
+  "score",
+  "min_score",
+  "meets_minimum",
+  "measured_weight"
+ ],
+ "fields": [
+  {
+   "fieldname": "kpi_category",
+   "fieldtype": "Link",
+   "label": "Category",
+   "options": "CW KPI Category",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 3
+  },
+  {
+   "fieldname": "weight",
+   "fieldtype": "Percent",
+   "label": "Weight",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "score",
+   "fieldtype": "Percent",
+   "label": "Score",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "min_score",
+   "fieldtype": "Percent",
+   "label": "Minimum",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "meets_minimum",
+   "fieldtype": "Select",
+   "label": "Meets Minimum",
+   "options": "\nYes\nNo\nNot Measured",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "measured_weight",
+   "fieldtype": "Percent",
+   "label": "Measured Share",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 1,
+   "description": "How much of the category's criteria had data."
+  }
+ ],
+ "links": [],
+ "modified": "2026-10-22 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "KPI Management",
+ "name": "CW KPI Category Result",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "istable": 1
+}

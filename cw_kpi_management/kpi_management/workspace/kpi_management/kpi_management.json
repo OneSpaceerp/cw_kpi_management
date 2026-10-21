@@ -10,7 +10,7 @@
    "label": "Approved Evaluations by Grade"
   }
  ],
- "content": "[{\"id\": \"cwkpi10001\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Employee Performance</b></span>\", \"col\": 12}}, {\"id\": \"cwkpi10002\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Active KPI Plans\", \"col\": 4}}, {\"id\": \"cwkpi10003\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Evaluations Awaiting Review\", \"col\": 4}}, {\"id\": \"cwkpi10004\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Approved Evaluations\", \"col\": 4}}, {\"id\": \"cwkpi10005\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Average Final Score\", \"col\": 4}}, {\"id\": \"cwkpi10006\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Open KPI Periods\", \"col\": 4}}, {\"id\": \"cwkpi10007\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Evaluations by Status\", \"col\": 6}}, {\"id\": \"cwkpi10008\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Approved Evaluations by Grade\", \"col\": 6}}, {\"id\": \"cwkpi10009\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h5\\\"><b>Quick Access</b></span>\", \"col\": 12}}, {\"id\": \"cwkpi10010\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Employee KPI Plan\", \"col\": 3}}, {\"id\": \"cwkpi10011\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"KPI Evaluation\", \"col\": 3}}, {\"id\": \"cwkpi10012\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"KPI Period\", \"col\": 3}}, {\"id\": \"cwkpi10013\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Employee KPI Summary\", \"col\": 3}}, {\"id\": \"cwkpi10014\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h5\\\"><b>Reports &amp; Masters</b></span>\", \"col\": 12}}, {\"id\": \"cwkpi10015\", \"type\": \"card\", \"data\": {\"card_name\": \"Performance\", \"col\": 4}}, {\"id\": \"cwkpi10016\", \"type\": \"card\", \"data\": {\"card_name\": \"Reports\", \"col\": 4}}, {\"id\": \"cwkpi10017\", \"type\": \"card\", \"data\": {\"card_name\": \"Setup\", \"col\": 4}}]",
+ "content": "[{\"id\": \"cwkpi10001\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Employee Performance</b></span>\", \"col\": 12}}, {\"id\": \"cwkpi10002\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Active KPI Plans\", \"col\": 4}}, {\"id\": \"cwkpi10003\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Evaluations Awaiting Review\", \"col\": 4}}, {\"id\": \"cwkpi10004\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Eligible Evaluations\", \"col\": 4}}, {\"id\": \"cwkpi10005\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Average Final Score\", \"col\": 4}}, {\"id\": \"cwkpi10006\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Open KPI Periods\", \"col\": 4}}, {\"id\": \"cwkpi1nc06\", \"type\": \"number_card\", \"data\": {\"number_card_name\": \"Monthly Reviews Needing Attention\", \"col\": 4}}, {\"id\": \"cwkpi10007\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Evaluations by Status\", \"col\": 6}}, {\"id\": \"cwkpi10008\", \"type\": \"chart\", \"data\": {\"chart_name\": \"Approved Evaluations by Grade\", \"col\": 6}}, {\"id\": \"cwkpi10009\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h5\\\"><b>Quick Access</b></span>\", \"col\": 12}}, {\"id\": \"cwkpi10010\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Employee KPI Plan\", \"col\": 3}}, {\"id\": \"cwkpi1sc10\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Monthly Review\", \"col\": 3}}, {\"id\": \"cwkpi10011\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"KPI Evaluation\", \"col\": 3}}, {\"id\": \"cwkpi10012\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"KPI Period\", \"col\": 3}}, {\"id\": \"cwkpi10013\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Employee KPI Summary\", \"col\": 3}}, {\"id\": \"cwkpi1sc11\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Engineer Scorecard\", \"col\": 3}}, {\"id\": \"cwkpi10014\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h5\\\"><b>Reports &amp; Masters</b></span>\", \"col\": 12}}, {\"id\": \"cwkpi10015\", \"type\": \"card\", \"data\": {\"card_name\": \"Performance\", \"col\": 4}}, {\"id\": \"cwkpi10016\", \"type\": \"card\", \"data\": {\"card_name\": \"Reports\", \"col\": 4}}, {\"id\": \"cwkpi10017\", \"type\": \"card\", \"data\": {\"card_name\": \"Setup\", \"col\": 4}}]",
  "creation": "2026-10-21 12:00:00.000000",
  "custom_blocks": [],
  "docstatus": 0,
@@ -27,7 +27,7 @@
    "hidden": 0,
    "is_query_report": 0,
    "label": "Performance",
-   "link_count": 4,
+   "link_count": 5,
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -75,8 +75,18 @@
   {
    "hidden": 0,
    "is_query_report": 0,
+   "label": "Monthly Review",
+   "link_count": 0,
+   "link_to": "CW KPI Monthly Review",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
    "label": "Reports",
-   "link_count": 2,
+   "link_count": 3,
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -105,9 +115,20 @@
   },
   {
    "hidden": 0,
+   "is_query_report": 1,
+   "label": "Engineer Scorecard",
+   "link_count": 0,
+   "link_to": "Engineer Scorecard",
+   "link_type": "Report",
+   "onboard": 0,
+   "report_ref_doctype": "CW KPI Evaluation",
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
    "is_query_report": 0,
    "label": "Setup",
-   "link_count": 3,
+   "link_count": 4,
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
@@ -141,9 +162,19 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "KPI Category",
+   "link_count": 0,
+   "link_to": "CW KPI Category",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2026-10-21 18:00:00.000000",
+ "modified": "2026-10-22 12:00:00.000000",
  "modified_by": "Administrator",
  "module": "KPI Management",
  "name": "KPI Management",
@@ -157,8 +188,8 @@
    "number_card_name": "Evaluations Awaiting Review"
   },
   {
-   "label": "Approved Evaluations",
-   "number_card_name": "Approved Evaluations"
+   "label": "Eligible Evaluations",
+   "number_card_name": "Eligible Evaluations"
   },
   {
    "label": "Average Final Score",
@@ -167,6 +198,10 @@
   {
    "label": "Open KPI Periods",
    "number_card_name": "Open KPI Periods"
+  },
+  {
+   "label": "Monthly Reviews Needing Attention",
+   "number_card_name": "Monthly Reviews Needing Attention"
   }
  ],
  "owner": "Administrator",
@@ -182,6 +217,14 @@
    "doc_view": "List",
    "label": "Employee KPI Plan",
    "link_to": "CW Employee KPI Plan",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "label": "Monthly Review",
+   "link_to": "CW KPI Monthly Review",
+   "stats_filter": "[[\"CW KPI Monthly Review\", \"docstatus\", \"=\", 0]]",
    "type": "DocType"
   },
   {
@@ -204,6 +247,14 @@
    "doc_view": "",
    "label": "Employee KPI Summary",
    "link_to": "Employee KPI Summary",
+   "report_ref_doctype": "CW KPI Evaluation",
+   "type": "Report"
+  },
+  {
+   "color": "Green",
+   "doc_view": "",
+   "label": "Engineer Scorecard",
+   "link_to": "Engineer Scorecard",
    "report_ref_doctype": "CW KPI Evaluation",
    "type": "Report"
   }

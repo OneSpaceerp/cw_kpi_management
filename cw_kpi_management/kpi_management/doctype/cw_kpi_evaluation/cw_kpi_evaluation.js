@@ -3,6 +3,20 @@
 
 frappe.ui.form.on("CW KPI Evaluation", {
 	refresh(frm) {
+		if (frm.doc.eligibility) {
+			const color = { Eligible: "green", "Not Eligible": "red", Incomplete: "orange" }[frm.doc.eligibility] || "gray";
+			const reasons = (frm.doc.eligibility_reasons || "")
+				.split("\n")
+				.filter(Boolean)
+				.map((line) => `<div class="text-muted small">${frappe.utils.escape_html(line)}</div>`)
+				.join("");
+			frm.dashboard.set_headline(
+				`<span class="indicator-pill ${color}">${__(frm.doc.eligibility)}</span>
+				 <b class="ml-2">${format_number(frm.doc.final_score || 0, null, 1)}%</b>
+				 <span class="text-muted ml-2">${__("{0} of {1} monthly reviews", [frm.doc.months_reviewed || 0, frm.doc.months_required || 0])}</span>
+				 ${reasons}`
+			);
+		}
 		if (!frm.is_new() && frm.doc.docstatus === 0) {
 			// Action button to calculate
 			frm.add_custom_button(__("Calculate KPI Score"), function () {

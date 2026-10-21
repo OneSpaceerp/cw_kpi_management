@@ -24,6 +24,14 @@ class CWEmployeeKPIPlan(Document):
 		total = sum(flt(item.weight) for item in getattr(self, "plan_items", []))
 		self.total_weight = round(total, 2)
 
+		if getattr(self, "categories", None):
+			# Scorecard: category weights total 100%, and so do the criteria inside each category.
+			from cw_kpi_management.scorecard_service import validate_structure
+
+			validate_structure(self)
+			self.total_weight = round(sum(flt(row.weight) for row in self.categories), 2)
+			return
+
 		if getattr(self, "plan_items", []) and round(total, 1) != 100.0:
 			if frappe:
 				frappe.throw(_("The sum of KPI weights must equal 100%. Current sum: {0}%").format(self.total_weight))

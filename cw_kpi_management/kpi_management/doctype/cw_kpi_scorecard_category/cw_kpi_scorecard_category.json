@@ -1,0 +1,50 @@
+{
+ "actions": [],
+ "creation": "2026-10-22 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "kpi_category",
+  "weight",
+  "min_score"
+ ],
+ "fields": [
+  {
+   "fieldname": "kpi_category",
+   "fieldtype": "Link",
+   "label": "Category",
+   "options": "CW KPI Category",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 4
+  },
+  {
+   "fieldname": "weight",
+   "fieldtype": "Percent",
+   "label": "Weight",
+   "reqd": 1,
+   "in_list_view": 1,
+   "columns": 2
+  },
+  {
+   "fieldname": "min_score",
+   "fieldtype": "Percent",
+   "label": "Minimum Score",
+   "in_list_view": 1,
+   "columns": 2,
+   "description": "Leave empty to use the scorecard's minimum per category."
+  }
+ ],
+ "links": [],
+ "modified": "2026-10-22 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "KPI Management",
+ "name": "CW KPI Scorecard Category",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "istable": 1,
+ "editable_grid": 1
+}

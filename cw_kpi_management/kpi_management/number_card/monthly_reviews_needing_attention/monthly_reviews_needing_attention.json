@@ -1,0 +1,20 @@
+{
+ "creation": "2026-10-22 12:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Number Card",
+ "document_type": "CW KPI Monthly Review",
+ "filters_json": "[[\"CW KPI Monthly Review\", \"monthly_indicator\", \"=\", \"Needs Improvement\"], [\"CW KPI Monthly Review\", \"docstatus\", \"=\", 1]]",
+ "function": "Count",
+ "idx": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "label": "Monthly Reviews Needing Attention",
+ "modified": "2026-10-22 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "KPI Management",
+ "name": "Monthly Reviews Needing Attention",
+ "owner": "Administrator",
+ "show_percentage_stats": 1,
+ "stats_time_interval": "Monthly",
+ "type": "Document Type"
+}

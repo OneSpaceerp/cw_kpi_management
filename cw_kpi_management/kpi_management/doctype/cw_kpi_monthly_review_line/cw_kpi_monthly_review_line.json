@@ -1,0 +1,123 @@
+{
+ "actions": [],
+ "creation": "2026-10-22 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "kpi_definition",
+  "kpi_name",
+  "kpi_category",
+  "weight",
+  "data_source",
+  "entry_mode",
+  "col_values",
+  "actual_value",
+  "required_value",
+  "achievement_percent",
+  "not_measured",
+  "source_note",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "kpi_definition",
+   "fieldtype": "Link",
+   "label": "Criterion",
+   "options": "CW KPI Definition",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 3
+  },
+  {
+   "fieldname": "kpi_name",
+   "fieldtype": "Data",
+   "label": "Criterion Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "kpi_category",
+   "fieldtype": "Link",
+   "label": "Category",
+   "options": "CW KPI Category",
+   "read_only": 1
+  },
+  {
+   "fieldname": "weight",
+   "fieldtype": "Percent",
+   "label": "Weight in Category",
+   "read_only": 1
+  },
+  {
+   "fieldname": "data_source",
+   "fieldtype": "Data",
+   "label": "Data Source",
+   "read_only": 1
+  },
+  {
+   "fieldname": "entry_mode",
+   "fieldtype": "Select",
+   "label": "Entry",
+   "options": "Manual\nAutomatic",
+   "read_only": 1,
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "col_values",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "actual_value",
+   "fieldtype": "Float",
+   "label": "Achieved",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "required_value",
+   "fieldtype": "Float",
+   "label": "Required",
+   "in_list_view": 1,
+   "columns": 1
+  },
+  {
+   "fieldname": "achievement_percent",
+   "fieldtype": "Percent",
+   "label": "Achievement",
+   "in_list_view": 1,
+   "columns": 2,
+   "description": "Achieved ÷ required, capped at 100%. Filled in from Achieved and Required, or enter it directly."
+  },
+  {
+   "fieldname": "not_measured",
+   "fieldtype": "Check",
+   "label": "Not Measured",
+   "in_list_view": 1,
+   "columns": 1,
+   "description": "Nothing was required this month. The criterion is left out of the score."
+  },
+  {
+   "fieldname": "source_note",
+   "fieldtype": "Small Text",
+   "label": "How It Was Measured",
+   "read_only": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "links": [],
+ "modified": "2026-10-22 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "KPI Management",
+ "name": "CW KPI Monthly Review Line",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "istable": 1,
+ "editable_grid": 1
+}

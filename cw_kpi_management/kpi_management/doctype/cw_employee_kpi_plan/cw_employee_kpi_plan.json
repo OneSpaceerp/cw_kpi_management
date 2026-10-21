@@ -16,6 +16,15 @@
   "target_template",
   "status",
   "total_weight",
+  "section_scorecard",
+  "evaluation_cycle",
+  "months_required",
+  "missing_data_policy",
+  "col_scorecard",
+  "pass_total_score",
+  "min_category_score",
+  "section_categories",
+  "categories",
   "section_items",
   "plan_items",
   "section_notes",
@@ -99,6 +108,63 @@
    "read_only": 1
   },
   {
+   "fieldname": "section_scorecard",
+   "fieldtype": "Section Break",
+   "label": "Scorecard"
+  },
+  {
+   "fieldname": "evaluation_cycle",
+   "fieldtype": "Select",
+   "label": "Evaluation Cycle",
+   "options": "Quarterly\nMonthly\nSemi-Annual\nAnnual",
+   "default": "Quarterly"
+  },
+  {
+   "fieldname": "months_required",
+   "fieldtype": "Int",
+   "label": "Monthly Reviews Required",
+   "default": "3",
+   "description": "How many submitted monthly reviews the period needs before a payment decision. 3 for a quarter."
+  },
+  {
+   "fieldname": "missing_data_policy",
+   "fieldtype": "Select",
+   "label": "Criterion With No Data",
+   "options": "Exclude and Reweight\nCount as Zero",
+   "default": "Exclude and Reweight",
+   "description": "What a criterion with no data does to the score. Exclude and Reweight: it is left out and its weight is shared by the measured criteria of its category. Count as Zero: it scores 0% (the original sheet)."
+  },
+  {
+   "fieldname": "col_scorecard",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "pass_total_score",
+   "fieldtype": "Percent",
+   "label": "Minimum Total Score",
+   "default": "85",
+   "description": "Eligible for payment only at or above this total..."
+  },
+  {
+   "fieldname": "min_category_score",
+   "fieldtype": "Percent",
+   "label": "Minimum Score per Category",
+   "default": "70",
+   "description": "...and when no category is below this, however high the total."
+  },
+  {
+   "fieldname": "section_categories",
+   "fieldtype": "Section Break",
+   "label": "Categories"
+  },
+  {
+   "fieldname": "categories",
+   "fieldtype": "Table",
+   "label": "Categories",
+   "options": "CW KPI Scorecard Category",
+   "description": "Category weights total 100%. The criteria of each category, below, also total 100% within it."
+  },
+  {
    "fieldname": "section_items",
    "fieldtype": "Section Break",
    "label": "Assigned KPI Metrics & Targets"
@@ -122,7 +188,7 @@
   }
  ],
  "links": [],
- "modified": "2026-09-09 10:00:00.000000",
+ "modified": "2026-10-22 12:00:00.000000",
  "modified_by": "Administrator",
  "module": "KPI Management",
  "name": "CW Employee KPI Plan",

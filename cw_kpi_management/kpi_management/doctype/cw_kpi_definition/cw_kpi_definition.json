@@ -8,6 +8,8 @@
  "field_order": [
   "kpi_code",
   "kpi_name",
+  "arabic_name",
+  "kpi_category",
   "department",
   "kpi_type",
   "directionality",
@@ -25,7 +27,8 @@
   "range_min_value",
   "range_max_value",
   "section_desc",
-  "description"
+  "description",
+  "measurement_method"
  ],
  "fields": [
   {
@@ -42,6 +45,19 @@
    "in_list_view": 1,
    "label": "KPI Name",
    "reqd": 1
+  },
+  {
+   "fieldname": "arabic_name",
+   "fieldtype": "Data",
+   "label": "Arabic Name"
+  },
+  {
+   "fieldname": "kpi_category",
+   "fieldtype": "Link",
+   "label": "Category",
+   "options": "CW KPI Category",
+   "in_list_view": 1,
+   "in_standard_filter": 1
   },
   {
    "fieldname": "department",
@@ -75,8 +91,9 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Data Source",
-   "options": "Manual Entry\nCW Site Visits\nERPNext Attendance\nERPNext Sales Invoices\nERPNext Quotations",
-   "reqd": 1
+   "options": "Manual Entry\nVisits: Plan Adherence\nService Requests: Response Within SLA\nService Requests: Closed On Time\nVisits: Reports On Time\nVisits: Customer Satisfaction\nSales: Revenue vs Target\nSales: New Customers vs Target\nSales: Quotations vs Target\nCW Site Visits\nERPNext Attendance\nERPNext Sales Invoices\nERPNext Quotations",
+   "reqd": 1,
+   "description": "Where the achievement comes from. Visits and Service Requests need the Visits app; Sales uses the Sales Person linked to the employee."
   },
   {
    "fieldname": "unit",
@@ -150,10 +167,16 @@
    "fieldname": "description",
    "fieldtype": "Small Text",
    "label": "Description / Formula Instructions"
+  },
+  {
+   "fieldname": "measurement_method",
+   "fieldtype": "Small Text",
+   "label": "How It Is Measured",
+   "description": "e.g. visits executed ÷ visits planned."
   }
  ],
  "links": [],
- "modified": "2026-09-09 10:00:00.000000",
+ "modified": "2026-10-22 12:00:00.000000",
  "modified_by": "Administrator",
  "module": "KPI Management",
  "name": "CW KPI Definition",

@@ -25,6 +25,8 @@ def on_evaluation_submit(doc, method=None):
 	"""
 	if not frappe:
 		return
+	if not frappe.db.get_single_value("CW KPI Settings", "auto_generate_payroll_on_approval"):
+		return
 
 	generate_payroll_results_for_evaluation(doc.name)
 
@@ -38,6 +40,21 @@ def generate_payroll_results_for_evaluation(evaluation_name: str) -> List[str]:
 		return []
 
 	eval_doc = frappe.get_doc("CW KPI Evaluation", evaluation_name)
+
+	# A scorecard evaluation pays only when it is Eligible: every monthly review in, the
+	# total at or above the minimum and no category below its minimum. The amount still
+	# comes from the Compensation Rules; nothing here invents one.
+	if eval_doc.get("eligibility") and eval_doc.eligibility != "Eligible":
+		frappe.msgprint(
+			_("No payroll result was created: the evaluation is {0}.").format(_(eval_doc.eligibility)),
+			alert=True,
+		)
+		return []
+
+	# Approving twice must not pay twice.
+	if frappe.db.exists("CW KPI Payroll Result", {"kpi_evaluation": eval_doc.name, "docstatus": ["<", 2]}):
+		return []
+
 	score = flt(eval_doc.final_score or eval_doc.calculated_score)
 	emp = eval_doc.employee
 

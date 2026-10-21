@@ -39,6 +39,7 @@ doc_events = {
 permission_query_conditions = {
 	"CW KPI Evaluation": "cw_kpi_management.kpi_management.doctype.cw_kpi_evaluation.cw_kpi_evaluation.get_permission_query_conditions",
 	"CW Employee KPI Plan": "cw_kpi_management.kpi_management.doctype.cw_employee_kpi_plan.cw_employee_kpi_plan.get_permission_query_conditions",
+	"CW KPI Monthly Review": "cw_kpi_management.kpi_management.doctype.cw_kpi_monthly_review.cw_kpi_monthly_review.get_permission_query_conditions",
 }
 
 # Fixtures to export/install

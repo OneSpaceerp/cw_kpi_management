@@ -12,7 +12,14 @@
   "col_break_1",
   "require_override_reason",
   "require_department_manager_approval",
-  "auto_generate_payroll_on_approval"
+  "auto_generate_payroll_on_approval",
+  "section_scorecard",
+  "default_pass_total_score",
+  "default_min_category_score",
+  "col_scorecard",
+  "default_missing_data_policy",
+  "default_months_required",
+  "score_precision"
  ],
  "fields": [
   {
@@ -63,11 +70,53 @@
    "fieldname": "auto_generate_payroll_on_approval",
    "fieldtype": "Check",
    "label": "Auto-generate KPI Payroll Result upon Evaluation Approval"
+  },
+  {
+   "fieldname": "section_scorecard",
+   "fieldtype": "Section Break",
+   "label": "Scorecard Defaults (C-Water Engineer Evaluation)"
+  },
+  {
+   "fieldname": "default_pass_total_score",
+   "fieldtype": "Percent",
+   "label": "Minimum Total Score",
+   "default": "85"
+  },
+  {
+   "fieldname": "default_min_category_score",
+   "fieldtype": "Percent",
+   "label": "Minimum Score per Category",
+   "default": "70"
+  },
+  {
+   "fieldname": "col_scorecard",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_missing_data_policy",
+   "fieldtype": "Select",
+   "label": "Criterion With No Data",
+   "options": "Exclude and Reweight\nCount as Zero",
+   "default": "Exclude and Reweight",
+   "description": "What a criterion with no data does to the score. Exclude and Reweight: it is left out and its weight is shared by the measured criteria of its category. Count as Zero: it scores 0% (the original sheet)."
+  },
+  {
+   "fieldname": "default_months_required",
+   "fieldtype": "Int",
+   "label": "Monthly Reviews per Quarter",
+   "default": "3"
+  },
+  {
+   "fieldname": "score_precision",
+   "fieldtype": "Int",
+   "label": "Score Decimals",
+   "default": "1",
+   "description": "Scores are rounded to this many decimals, half up, before they are compared with the thresholds."
   }
  ],
  "issingle": 1,
  "links": [],
- "modified": "2026-09-09 10:00:00.000000",
+ "modified": "2026-10-22 12:00:00.000000",
  "modified_by": "Administrator",
  "module": "KPI Management",
  "name": "CW KPI Settings",

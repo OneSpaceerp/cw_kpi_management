@@ -22,6 +22,18 @@
   "total_weighted_score",
   "col_break_scores",
   "grade",
+  "section_eligibility",
+  "eligibility",
+  "months_reviewed",
+  "months_required",
+  "col_eligibility",
+  "eligibility_reasons",
+  "pass_total_score",
+  "min_category_score",
+  "missing_data_policy",
+  "section_category_results",
+  "category_results",
+  "monthly_reviews",
   "section_lines",
   "evaluation_lines",
   "section_overrides",
@@ -151,6 +163,78 @@
    "read_only": 1
   },
   {
+   "fieldname": "section_eligibility",
+   "fieldtype": "Section Break",
+   "label": "Payment Eligibility"
+  },
+  {
+   "fieldname": "eligibility",
+   "fieldtype": "Select",
+   "label": "Eligibility",
+   "options": "\nEligible\nNot Eligible\nIncomplete",
+   "read_only": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "months_reviewed",
+   "fieldtype": "Int",
+   "label": "Monthly Reviews Used",
+   "read_only": 1
+  },
+  {
+   "fieldname": "months_required",
+   "fieldtype": "Int",
+   "label": "Monthly Reviews Required",
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_eligibility",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "eligibility_reasons",
+   "fieldtype": "Small Text",
+   "label": "Why",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pass_total_score",
+   "fieldtype": "Percent",
+   "label": "Minimum Total Score",
+   "read_only": 1
+  },
+  {
+   "fieldname": "min_category_score",
+   "fieldtype": "Percent",
+   "label": "Minimum per Category",
+   "read_only": 1
+  },
+  {
+   "fieldname": "missing_data_policy",
+   "fieldtype": "Data",
+   "label": "Criterion With No Data",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_category_results",
+   "fieldtype": "Section Break",
+   "label": "Category Scores"
+  },
+  {
+   "fieldname": "category_results",
+   "fieldtype": "Table",
+   "label": "Category Scores",
+   "options": "CW KPI Category Result",
+   "read_only": 1
+  },
+  {
+   "fieldname": "monthly_reviews",
+   "fieldtype": "Small Text",
+   "label": "Monthly Reviews",
+   "read_only": 1
+  },
+  {
    "fieldname": "section_lines",
    "fieldtype": "Section Break",
    "label": "KPI Evaluation Lines"
@@ -213,7 +297,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2026-09-09 10:00:00.000000",
+ "modified": "2026-10-22 12:00:00.000000",
  "modified_by": "Administrator",
  "module": "KPI Management",
  "name": "CW KPI Evaluation",
