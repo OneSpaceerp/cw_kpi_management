@@ -4,5 +4,5 @@
 from frappe.model.document import Document
 
 
-class CwKpiCategoryResult(Document):
+class CWKPICategoryResult(Document):
 	pass
