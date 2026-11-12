@@ -176,7 +176,7 @@
   }
  ],
  "links": [],
- "modified": "2026-10-22 12:00:00.000000",
+ "modified": "2026-11-13 12:00:00.000000",
  "modified_by": "Administrator",
  "module": "KPI Management",
  "name": "CW KPI Definition",
@@ -213,5 +213,8 @@
  "sort_field": "kpi_code",
  "sort_order": "ASC",
  "states": [],
- "track_changes": 1
+ "track_changes": 1,
+ "title_field": "kpi_name",
+ "show_title_field_in_link": 1,
+ "search_fields": "kpi_name,arabic_name,kpi_category"
 }
