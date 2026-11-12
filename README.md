@@ -86,6 +86,14 @@ are on the template/plan, with defaults in CW KPI Settings. A category can have 
 own minimum. The incentive **amount** is not in the sheet; it comes only from the
 Compensation Rules C-Water defines.
 
+## In the phone app
+
+`cw_kpi_management.mobile.my_performance` gives the signed-in engineer their own
+scorecard: this month so far (automatic criteria measured live, the manager's
+criteria from the monthly review), the quarter's monthly reviews and decision, and
+recommendations ordered by the points each would add to the total
+(`recommendations.py`). The phone app shows it under **My performance**.
+
 ## Desk app (ERPNext v16.51+)
 
 KPI is a desk app of its own: a **KPI** tile on the Apps screen (logo
