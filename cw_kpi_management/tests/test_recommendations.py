@@ -70,5 +70,24 @@ class Recommendations(unittest.TestCase):
 		self.assertEqual(items[0]["params"]["stars"], 3.8)
 
 
+class NothingMeasuredYet(unittest.TestCase):
+	def test_not_called_on_track(self):
+		items = recommend([crit("A", "M", 100, 100, None, "Visits: Plan Adherence")], [], {"total": None, "pass_total": 85})
+		kinds = [i["kind"] for i in items]
+		self.assertNotIn("keep_going", kinds)
+		self.assertEqual(kinds[0], "nothing_measured")
+
+	def test_open_visits_come_first(self):
+		items = recommend([], [], {"total": None, "pass_total": 85}, {"open_visits": 4})
+		self.assertEqual([i["kind"] for i in items[:2]], ["submit_open_visits", "nothing_measured"])
+		self.assertEqual(items[0]["params"]["count"], 4)
+
+	def test_open_visits_even_when_scoring_well(self):
+		items = recommend([], [], {"total": 96, "pass_total": 85}, {"open_visits": 1})
+		kinds = [i["kind"] for i in items]
+		self.assertEqual(kinds[0], "submit_open_visits")
+		self.assertNotIn("keep_going", kinds)
+
+
 if __name__ == "__main__":
 	unittest.main()

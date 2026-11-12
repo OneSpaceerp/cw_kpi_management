@@ -226,7 +226,18 @@ def _visit_context(employee, today, month_start, month_end) -> dict:
 		},
 		fields=["name", "customer_rating"],
 	)
+	# Started (or sent back) and not handed in: they count only once submitted for review.
+	open_visits = frappe.db.count(
+		"CW Site Visit",
+		{
+			"assigned_engineer": employee,
+			"docstatus": 0,
+			"visit_status": ["in", ["In Progress", "Correction Required"]],
+			"planned_date": ["<=", today],
+		},
+	)
 	return {
 		"planned_remaining": planned_remaining,
 		"visits_without_feedback": sum(1 for visit in executed if not flt(visit.customer_rating)),
+		"open_visits": open_visits,
 	}

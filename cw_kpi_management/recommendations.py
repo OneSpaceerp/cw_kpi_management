@@ -34,6 +34,18 @@ def recommend(criteria: list[dict], categories: list[dict], rules: dict, context
 	context = context or {}
 	items = []
 
+	# Visits started but never handed in count for nothing: say so first.
+	open_visits = int(context.get("open_visits") or 0)
+	if open_visits:
+		items.append(
+			{
+				"kind": "submit_open_visits",
+				"impact": 0,
+				"priority": True,
+				"params": {"count": open_visits},
+			}
+		)
+
 	for category in categories:
 		score, minimum = category.get("score"), category.get("min_score")
 		if score is not None and minimum is not None and score < minimum:
@@ -102,7 +114,10 @@ def recommend(criteria: list[dict], categories: list[dict], rules: dict, context
 		)
 
 	items.sort(key=lambda item: (not item["priority"], -item["impact"]))
-	if not any(item["impact"] > 0 for item in items):
+	if total is None:
+		# Nothing measured yet is not "on track": explain what makes the score appear.
+		items.insert(1 if open_visits else 0, {"kind": "nothing_measured", "impact": 0, "priority": False, "params": {}})
+	elif not any(item["impact"] > 0 for item in items) and not open_visits:
 		items.insert(0, {"kind": "keep_going", "impact": 0, "priority": False, "params": {"total": total}})
 	return items
 
